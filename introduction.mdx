@@ -1,0 +1,85 @@
+---
+title: Introduction to Вячеслав Пономарев Documentation
+description: Welcome to the default documentation space for Вячеслав Пономарев, where you can organize and manage project documentation efficiently.
+---
+
+## Overview
+
+Welcome to the Вячеслав Пономарев documentation space. You get a centralized hub to create, organize, and maintain all your project documentation. Build structured guides, API references, and changelogs with MDX-powered pages that render beautifully across devices.
+
+This space supports version control, search, and collaboration features. Start by adding pages for quickstarts, authentication flows, and FAQs. Customize with your brand color `{ #3B82F6 }` for a professional look.
+
+## Key Features
+
+Discover the core capabilities that make managing documentation effortless.
+
+<Columns cols={3}>
+  <Card title="MDX Pages" icon="book-open" href="/docs/mdx-guide">
+    Write rich content using Markdown and JSX components. Embed code examples, diagrams, and interactive elements seamlessly.
+  </Card>
+  <Card title="Version History" icon="git-branch" href="/docs/changelog">
+    Track changes with built-in changelog support. Use `<Update>` components to highlight features, bug fixes, and breaking changes.
+  </Card>
+  <Card title="Search & Navigation" icon="search" href="/docs/navigation">
+    Full-text search and sidebar navigation help users find information quickly. Organize pages hierarchically for intuitive browsing.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Apply your brand color `{ #3B82F6 }` in custom themes or CSS variables for consistent styling across all pages.
+</Callout>
+
+## Quick Start
+
+Get your first documentation page live in minutes.
+
+<Steps>
+  <Step title="Create a Page" icon="plus">
+    Navigate to the dashboard at `https://dashboard.example.com` and click "New Page". Choose the `introduction.mdx` template.
+  </Step>
+  <Step title="Add Content" icon="edit-3">
+    Edit the YAML frontmatter with your `title` and `description`. Start body content with `## Overview`.
+  </Step>
+  <Step title="Preview & Publish" icon="eye">
+    Preview changes in real-time. Publish to make it live for your team.
+  </Step>
+</Steps>
+
+Here is a simple code example to embed in your pages:
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Fetch documentation data
+  const docsData = await fetch('https://api.example.com/docs');
+  console.log(docsData);
+  ```
+  ```python
+  # Fetch documentation data
+  import requests
+  docs_data = requests.get('https://api.example.com/docs')
+  print(docs_data.json())
+  ```
+</CodeGroup>
+
+## Next Steps
+
+Explore these resources to dive deeper:
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="zap" href="/quickstart">
+    Set up your first project and add custom pages.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your docs space with API keys and tokens.
+  </Card>
+  <Card title="Changelog" icon="git-commit" href="/changelog">
+    Review recent updates and migration guides.
+  </Card>
+  <Card title="Help Center" icon="help-circle" href="/help-center">
+    FAQs and troubleshooting for common issues.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Customize navigation in `https://docs.example.com` settings. Link to generated pages like `/quickstart` and `/authentication` for seamless user experience.
+</Callout>

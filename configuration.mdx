@@ -1,0 +1,145 @@
+---
+title: Configuring Your Documentation Space
+description: Customize your Вячеслав Пономарев documentation environment to fit your project's needs.
+---
+
+## Overview
+
+Customize your Вячеслав Пономарев documentation space to match your brand and workflow. Configure themes, set permissions, integrate tools, and manage backups through the dashboard or config files. Start with the dashboard at `https://dashboard.example.com/settings` for a visual interface, or edit `docs.config.json` directly for advanced control.
+
+<Callout kind="tip">
+  Back up your configuration before making changes. Test updates in a staging environment.
+</Callout>
+
+## Themes and Branding
+
+Set your brand color (`#3B82F6`) and other visual elements to align with your project.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to `https://dashboard.example.com/settings/theme`.
+  </Step>
+  <Step title="Update Colors" icon="palette">
+    Enter your primary color as `#3B82F6`.
+  </Step>
+  <Step title="Apply Logo" icon="image">
+    Upload your logo file (PNG or SVG, `<1MB`).
+  </Step>
+  <Step title="Preview and Save" icon="save">
+    Preview changes and click Save.
+  </Step>
+</Steps>
+
+Use this JSON snippet in `docs.config.json` for programmatic setup:
+
+````json
+{
+  "theme": {
+    "primaryColor": "#3B82F6",
+    "logoUrl": "https://your-domain.com/logo.png"
+  }
+}
+````
+
+## Managing User Permissions
+
+Control access with role-based permissions. Define roles in the dashboard or config.
+
+| Role       | Read | Write | Admin |
+|------------|------|-------|-------|
+| Viewer     | Yes  | No    | No    |
+| Editor     | Yes  | Yes   | No    |
+| Owner      | Yes  | Yes   | Yes   |
+
+<ParamField path="permissions.role" param-type="string" required="true">
+  User role: `viewer`, `editor`, or `owner`.
+</ParamField>
+
+<ParamField header="X-API-Key" param-type="string" required="true">
+  Authentication header for API permission checks.
+</ParamField>
+
+## Integrating External Tools
+
+Connect Вячеслав Пономарев to GitHub, Slack, or webhooks.
+
+<Tabs>
+  <Tab title="GitHub" icon="github">
+    Generate a token at `https://github.com/settings/tokens`.
+
+    <CodeGroup tabs="JSON,YAML">
+    ````json
+    {
+      "integrations": {
+        "github": {
+          "token": "YOUR_GITHUB_TOKEN",
+          "repo": "your-org/your-repo"
+        }
+      }
+    }
+    ````
+
+    ````yaml
+    integrations:
+      github:
+        token: YOUR_GITHUB_TOKEN
+        repo: your-org/your-repo
+    ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Slack" icon="message-circle">
+    Use your webhook URL.
+
+    ````javascript
+    const slackConfig = {
+      webhook: "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+    };
+    ````
+  </Tab>
+  <Tab title="Webhook" icon="zap">
+    Set endpoint to `https://your-webhook-url.com/webhook`.
+  </Tab>
+</Tabs>
+
+## Backup and Synchronization
+
+Enable automatic backups and sync with external storage.
+
+<Columns cols={2}>
+  <Card title="Daily Backups" icon="database" href="#backups">
+    Schedule daily exports to S3.
+  </Card>
+  <Card title="Real-time Sync" icon="refresh-cw" href="#sync">
+    Mirror changes to Git repo.
+  </Card>
+</Columns>
+
+Example config:
+
+<CodeGroup tabs="CLI,Dashboard">
+````bash
+docs-cli config set backup.enabled true
+docs-cli config set backup.s3.bucket my-backup-bucket
+````
+
+````bash
+# Dashboard equivalent: Settings > Backup > Enable S3
+````
+</CodeGroup>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+
+If sync fails, check logs at `https://dashboard.example.com/logs`.
+
+**Common errors:**
+
+- Invalid `{API_KEY}`: Verify format.
+- Network timeout: Increase `timeout` to `>30s`.
+
+Run `docs-cli validate-config` to test.
+
+</Expandable>
+
+<Callout kind="alert">
+  Secure your config file. Never commit real secrets to version control.
+</Callout>

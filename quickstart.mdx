@@ -1,0 +1,132 @@
+---
+title: Getting Started with Your Documentation Space
+description: Learn how to set up and start using your Вячеслав Пономарев documentation space in just a few minutes.
+---
+
+## Overview
+
+Get up and running with your Вячеслав Пономарев documentation space quickly. This guide walks you through creating your first project, navigating the interface, customizing settings, and importing content. Follow these steps to organize your project docs efficiently.
+
+<Callout kind="info">
+**Prerequisites:**
+- Active Вячеслав Пономарев account
+- Web browser (Chrome, Firefox, or Safari recommended)
+- Optional: Existing Markdown files for import
+</Callout>
+
+## Create Your First Documentation Project
+
+Start by setting up a new project in your dashboard.
+
+<Steps>
+  <Step title="Log In" icon="log-in">
+    Visit `https://dashboard.example.com` and sign in with your credentials.
+  </Step>
+  <Step title="Create Project" icon="plus">
+    Click the `New Project` button in the top-right corner.
+    
+    Enter a name like `My Project Docs` and select `Documentation Space` as the type.
+  </Step>
+  <Step title="Configure Basics" icon="settings">
+    Add a description and set your brand color to `#3B82F6`.
+    
+````bash
+# Example project config snippet
+project:
+  name: "My Project Docs"
+  color: "#3B82F6"
+````
+  </Step>
+</Steps>
+
+## Navigate the Interface
+
+The interface provides intuitive navigation for managing your docs.
+
+<Tabs>
+  <Tab title="Editor View" icon="edit-3">
+    Use the sidebar to browse pages. Drag and drop to reorder.
+    
+    The main editor supports real-time MDX preview.
+  </Tab>
+  <Tab title="Preview Mode" icon="eye">
+    Switch to preview with the eye icon. Test links and components live.
+  </Tab>
+  <Tab title="Settings Panel" icon="settings">
+    Access customization options via the gear icon.
+    
+    Update themes and integrations here.
+  </Tab>
+</Tabs>
+
+## Basic Setup and Customization
+
+Customize your space with simple configuration.
+
+<CodeGroup tabs="JSON,YAML">
+````json
+{
+  "theme": {
+    "primaryColor": "#3B82F6",
+    "font": "Inter"
+  },
+  "features": {
+    "search": true,
+    "analytics": true
+  }
+}
+````
+
+````yaml
+theme:
+  primaryColor: "#3B82F6"
+  font: Inter
+features:
+  search: true
+  analytics: true
+````
+</CodeGroup>
+
+<Callout kind="tip">
+Save changes and refresh to apply customizations instantly.
+</Callout>
+
+## Import Existing Content
+
+Bring in your Markdown files seamlessly.
+
+<Steps>
+  <Step title="Prepare Files" icon="file-text">
+    Organize your `.md` or `.mdx` files in a folder.
+  </Step>
+  <Step title="Upload" icon="upload">
+    Go to `Projects > Import` and drag your folder or use the upload button.
+  </Step>
+  <Step title="Review and Publish" icon="check-circle">
+    Scan for errors, then publish. Your content appears in the sidebar.
+  </Step>
+</Steps>
+
+## Next Steps
+
+Explore more features to enhance your documentation.
+
+<Columns cols={3}>
+  <Card title="Advanced Customization" icon="sliders" href="/configuration">
+    Dive into themes, SEO, and integrations.
+  </Card>
+  <Card title="API Authentication" icon="key" href="/authentication">
+    Secure your programmatic access.
+  </Card>
+  <Card title="Full Changelog" icon="git-branch" href="/changelog">
+    Track updates and improvements.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+
+- **Import fails:** Check file encoding (UTF-8 required).
+- **Preview not updating:** Clear browser cache or hard refresh.
+- **Custom color not applying:** Verify hex format like `#3B82F6`.
+
+</Expandable>
